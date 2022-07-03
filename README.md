@@ -1,5 +1,8 @@
 # TheOdinProject
-Each section below includes a list of points that I've learned while studying it's corresponding section in [The Odin Project](https://www.theodinproject.com/).
+For the visual repository with access to live web pages, use [GitHub pages](https://lunkums.github.io/TheOdinProject/).
+
+The following repository contains my submissions for assignments in [The Odin Project](https://www.theodinproject.com/). Each section below includes a list of points that I've learned while studying it's corresponding section in the curriculum.
+
 ## HTML Foundations ([Project: Recipes](./odin-recipes))
 - Google evaluates search terms in headers based on which rank of header is used (i.e. h1 more important than h2)
 - Image tags should always include an "alt" attribute to improve accessibility
