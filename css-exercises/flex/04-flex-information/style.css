@@ -1,5 +1,9 @@
+/* * {
+  border: 2px solid red !important;
+} */
+
 body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 img {
@@ -23,4 +27,35 @@ img {
   align-items: center;
   justify-content: center;
   background: #eee;
+}
+
+/* Solution */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 52px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  max-width: 200px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.text {
+  flex: auto;
+  text-align: center;
 }
