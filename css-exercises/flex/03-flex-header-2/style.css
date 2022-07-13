@@ -2,9 +2,9 @@
 you'll learn about it later. */
 @import url("https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;1,900&display=swap");
 
-* {
+/* * {
   border: 2px solid red !important;
-}
+} */
 
 body {
   margin: 0;
@@ -16,10 +16,12 @@ body {
   background: white;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  justify-content: space-between;
 }
 
 .inner-header {
-  padding: 8px;
+  align-items: center;
 }
 
 .inner-header,
@@ -28,9 +30,9 @@ ul {
 }
 
 .header,
-.inner-header {
+.inner-header,
+ul {
   display: flex;
-  justify-content: space-between;
 }
 
 .profile-image {
@@ -64,8 +66,6 @@ a {
 
 ul {
   list-style-type: none;
-  display: flex;
-  align-items: center;
   margin: 0;
   padding: 0;
 }
