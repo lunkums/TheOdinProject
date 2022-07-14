@@ -1,5 +1,6 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   min-height: 100vh;
 }
@@ -23,6 +24,72 @@ body {
 
 .card {
   border: 1px solid #eee;
-  box-shadow: 2px 4px 16px rgba(0,0,0,.06);
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.06);
   border-radius: 4px;
+}
+
+/* Solution */
+
+body,
+ul,
+.content,
+.header,
+.footer,
+.cards {
+  display: flex;
+}
+
+.header,
+.footer {
+  align-items: center;
+}
+
+.header {
+  padding: 0px 12px;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+.footer {
+  justify-content: center;
+}
+
+.content {
+  flex: auto;
+}
+
+.cards {
+  padding: 32px;
+  flex-flow: row wrap;
+  gap: 16px;
+}
+
+.card {
+  font-size: small;
+  padding: 8px;
+  width: 240px;
+  height: 240px;
+}
+
+.sidebar {
+  flex: 1 1 auto;
+  width: 600px;
+}
+
+body,
+ul {
+  flex-direction: column;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 12px;
+  gap: 12px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: large;
 }
