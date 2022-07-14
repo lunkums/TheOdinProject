@@ -39,7 +39,6 @@ body,
 body,
 .header,
 .footer {
-  display: flex;
   justify-content: space-between;
 }
 
