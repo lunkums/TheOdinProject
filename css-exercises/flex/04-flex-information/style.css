@@ -1,0 +1,61 @@
+/* * {
+  border: 2px solid red !important;
+} */
+
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+/* do not edit this footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+}
+
+/* Solution */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 52px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  max-width: 200px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.text {
+  flex: auto;
+  text-align: center;
+}
