@@ -3,6 +3,10 @@
   /*   border: 2px solid red !important; */
 }
 
+header {
+  padding: 0px 64px;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -12,10 +16,16 @@ body {
 
 .hero {
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  padding: 16px;
+  flex-flow: row nowrap;
+  justify-content: space-between;
   gap: 32px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 16px;
 }
 
 button {
@@ -24,32 +34,21 @@ button {
   font-size: 16px;
 }
 
-.left,
 .right {
+  flex: auto;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.left div {
-  height: 250px;
+  justify-content: flex-end;
   margin-bottom: 64px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.left div * {
-  margin: 8px 0px;
-  display: flex;
-  flex-direction: column;
 }
 
 .right img {
-  margin: 64px 0;
-  border: 8px double white;
-  border-radius: 4px;
+  max-width: 400px;
+  max-height: 100%;
+}
+
+.left {
+  flex: auto;
+  margin-bottom: 64px;
 }
 
 ul {
