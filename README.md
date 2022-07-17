@@ -27,7 +27,7 @@ The following repository contains my submissions for assignments in [The Odin Pr
   - Border (edge between padding and margin)
   - Margin (space between elements; margins have the ability to collapse or overlap between elements)
 
-## Flexbox
+## Flexbox ([Project: Landing Page](./landing-page))
 
 - How to use Flexbox:
   - Slap on a "display: flex;" and "flex-direction: column;" style
