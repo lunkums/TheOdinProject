@@ -152,14 +152,30 @@ button,
   border: 2px solid white;
 }
 
+.quote h6,
+.quote p {
+  margin: 0;
+  padding: 0;
+  max-width: 66%;
+  width: 100%;
+}
+
 .quote h6 {
+  text-align: end;
   color: #1f2937;
 }
 
 .quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   background-color: #e5e7eb;
   font-size: 36px;
   color: #1f2937;
+  padding: 128px 0;
+  height: 100%;
 }
 
 footer {
