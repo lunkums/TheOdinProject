@@ -1,6 +1,6 @@
 * {
   font-family: "Roboto", sans-serif;
-  /*   border: 2px solid red !important; */
+  /* border: 2px solid red !important; */
 }
 
 header {
@@ -35,30 +35,36 @@ button {
 }
 
 .right {
-  flex: auto;
+  flex: 1 1 auto;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin-bottom: 64px;
 }
 
 .right img {
+  flex: auto;
   max-width: 400px;
-  max-height: 100%;
+  min-width: 0;
+  width: 100%;
+  height: auto;
+  border: 4px double #f9faf8;
 }
 
 .left {
-  flex: auto;
+  flex: 1 2 auto;
   margin-bottom: 64px;
 }
 
 ul {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
   list-style-type: none;
   padding: 0;
   margin: 0;
-  gap: 32px;
+  gap: 0px 32px;
 }
 
 a {
