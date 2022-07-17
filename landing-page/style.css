@@ -1,13 +1,61 @@
 * {
   font-family: "Roboto", sans-serif;
+  /* border: 2px solid red !important; */
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0px;
 }
 
+.hero {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 16px;
+  gap: 32px;
+}
+
+button {
+  padding: 8px 32px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.left div {
+  height: 250px;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.left div * {
+  margin: 8px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.right img {
+  margin: 64px 0;
+}
+
 ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 32px;
 }
 
 a {
@@ -31,17 +79,39 @@ footer {
   background-color: #1f2937;
 }
 
-button,
-.modal {
-  background-color: #3882f6;
-  border: none;
-  color: #f9faf8;
-}
-
 .info h2 {
   font-size: 36px;
   font-weight: bold;
   color: #1f2937;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info div {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-mom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button,
+.modal {
+  background-color: #3882f6;
+  border-radius: 6px;
+  border: none;
+  color: #f9faf8;
+}
+
+.modal button {
+  border: 2px solid white;
 }
 
 .quote h6 {
@@ -56,4 +126,6 @@ button,
 
 footer {
   color: #e5e7eb;
+  text-align: center;
+  padding: 16px;
 }
