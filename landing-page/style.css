@@ -1,10 +1,14 @@
 * {
   font-family: "Roboto", sans-serif;
-  /* border: 2px solid red !important; */
+  /*   border: 2px solid red !important; */
 }
 
 header {
-  padding: 0px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 64px;
 }
 
 body {
@@ -12,6 +16,13 @@ body {
   flex-direction: column;
   justify-content: space-between;
   margin: 0px;
+}
+
+.hero,
+nav {
+  flex: auto;
+  width: 100%;
+  max-width: 66%;
 }
 
 .hero {
@@ -25,7 +36,6 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 16px;
 }
 
 button {
@@ -39,7 +49,6 @@ button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 64px;
 }
 
 .right img {
@@ -53,7 +62,6 @@ button {
 
 .left {
   flex: 1 2 auto;
-  margin-bottom: 64px;
 }
 
 ul {
