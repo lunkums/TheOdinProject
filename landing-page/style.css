@@ -1,17 +1,19 @@
 * {
   font-family: "Roboto", sans-serif;
-  /* border: 2px solid red !important; */
+  /*   border: 2px solid red !important; */
 }
 
 body {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin: 0px;
 }
 
 .hero {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   padding: 16px;
   gap: 32px;
 }
@@ -46,6 +48,8 @@ button {
 
 .right img {
   margin: 64px 0;
+  border: 8px double white;
+  border-radius: 4px;
 }
 
 ul {
@@ -79,21 +83,42 @@ footer {
   background-color: #1f2937;
 }
 
+.info div div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+}
+
 .info h2 {
   font-size: 36px;
   font-weight: bold;
   color: #1f2937;
 }
 
+.info-boxes img {
+  border: 4px solid #3882f6;
+  border-radius: 16px;
+  padding: 16px;
+  height: 100px;
+  flex: auto;
+}
+
+.info-boxes {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  margin-top: 16px;
+}
+
 .info {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.info div {
-  display: flex;
-  flex-direction: row;
+  margin-bottom: 64px;
 }
 
 .modal-mom {
