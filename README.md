@@ -2,7 +2,13 @@
 
 For the visual repository with access to live web pages, use [GitHub pages](https://lunkums.github.io/TheOdinProject/).
 
-The following repository contains my submissions for assignments in [The Odin Project](https://www.theodinproject.com/). Each section below includes a list of points that I've learned while studying it's corresponding section in the curriculum. If there is a project associated with a section, a link to my submission will be included in the heading.
+The following repository contains my submissions for assignments in [The Odin Project](https://www.theodinproject.com/). Each section below includes a list of points that I've learned while studying it's corresponding section in the curriculum. If there is a project associated with a section, a link to my submission will be included in the heading. The "Projects" section contains a list of links to all my project submissions.
+
+## Projects
+
+- [Project: Recipes](./odin-recipes)
+- [Project: Landing Page](./landing-page)
+- [Project: Rock Paper Scissors](./rock-paper-scissors)
 
 ## HTML Foundations ([Project: Recipes](./odin-recipes))
 
