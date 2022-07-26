@@ -1,21 +1,27 @@
 const removeFromArray = function () {
   let args = Array.from(arguments);
   const original = args.shift();
-  let newArray = [];
+  let adjusted = [];
 
   for (let i = 0; i < original.length; i++) {
     let element = original[i];
-    for (let j = 0; j < args.length; j++) {
-      if (element === args[j]) {
-        j = args.length;
-      } else if (j === args.length - 1) {
-        newArray.push(element);
-      }
+
+    if (!strictContains(args, element)) {
+      adjusted.push(element);
     }
   }
 
-  return newArray;
+  return adjusted;
 };
+
+function strictContains(array, element) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === element) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // Do not edit below this line
 module.exports = removeFromArray;
