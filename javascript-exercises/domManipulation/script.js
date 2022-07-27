@@ -4,6 +4,18 @@ addRedText(container);
 addBlueHeader(container);
 addPinkDiv(container);
 
+const buttons = document.querySelectorAll("#btn");
+buttons[0].onclick = () =>
+  alert("Hello, world (from onclick, through external JavaScript)!");
+buttons[1].addEventListener("click", () => {
+  alert("Hello, world (from addEventListener, through external JavaScript)!");
+});
+buttons[2].addEventListener("click", (e) => {
+  console.log(e);
+  console.log(e.target);
+  e.target.setAttribute("style", "background: blue;");
+});
+
 function addRedText(parent) {
   const redText = document.createElement("p");
   redText.textContent = "Hey I'm red!";
