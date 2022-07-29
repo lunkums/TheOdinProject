@@ -4,9 +4,24 @@
 <head>
     <meta charset="utf-8">
     <title>Rock-Paper-Scissors</title>
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="buttons">
+        <button id="rock-button">Rock</button>
+        <button id="paper-button">Paper</button>
+        <button id="scissors-button">Scissors</button>
+    </div>
+    <div>
+        <p id="results">Press a button to play!</p>
+        <p id="score">Score: 0 (Player) to 0 (Computer)</p>
+        <button id="reset" class="invisible">Reset</button>
+    </div>
     <script src="script.js"></script>
 </body>
 
