@@ -3,19 +3,49 @@ const PAPER = "Paper";
 const SCISSORS = "Scissors";
 const EXIT = "Exit";
 
-window.onload = game;
+let playerScore = 0;
+let computerScore = 0;
 
-function game() {
-  let playerInput;
+const results = document.querySelector("#results");
+const score = document.querySelector("#score");
 
-  while (true) {
-    playerInput = formatInput(prompt("Rock, paper, or scissors? "));
+const buttons = document.querySelectorAll(".buttons button");
+buttons.forEach((button) => {
+  button.addEventListener("click", buttonClick);
+});
 
-    if (isValidInput(playerInput)) {
-      alert(playRound(playerInput, getComputerChoice()));
-    } else if (playerInput === EXIT) {
-      break;
-    }
+const resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", reset);
+
+function buttonClick() {
+  if (getWinState()) {
+    return;
+  }
+  const result = playRound(this.textContent, getComputerChoice());
+  results.textContent = result;
+  score.textContent = `Score: ${playerScore} (Player) to ${computerScore} (Computer)`;
+
+  let winState = getWinState();
+  if (winState) {
+    results.textContent = `Game Over! You ${winState}!`;
+    resetButton.classList.remove("invisible");
+  }
+}
+
+function reset() {
+  results.textContent = "Press a button to play!";
+  playerScore = computerScore = 0;
+  score.textContent = `Score: ${playerScore} (Player) to ${computerScore} (Computer)`;
+  resetButton.classList.add("invisible");
+}
+
+function getWinState() {
+  if (playerScore > 4) {
+    return "win";
+  } else if (computerScore > 4) {
+    return "lose";
+  } else {
+    return null;
   }
 }
 
@@ -46,9 +76,11 @@ function playRound(playerSelection, computerSelection) {
   }
 
   if (playerWins) {
-    result = `You win! ${playerSelection} beats ${computerSelection}`;
+    result = `You win this round! ${playerSelection} beats ${computerSelection}`;
+    playerScore++;
   } else {
-    result = `You lose! ${computerSelection} beats ${playerSelection}`;
+    result = `You lose this round! ${computerSelection} beats ${playerSelection}`;
+    computerScore++;
   }
 
   return result;
