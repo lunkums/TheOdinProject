@@ -1,0 +1,21 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 25%);
+}
+
+.box {
+  box-sizing: border-box;
+  border: 2px solid red;
+}
+
+.box::before {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
+}
