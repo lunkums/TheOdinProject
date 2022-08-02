@@ -4,14 +4,25 @@ body {
   height: 100%;
 }
 
+.flexbox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container,
+.box {
+  border: 2px solid black;
+}
+
 .container {
+  width: 30em;
   display: grid;
   grid-template-columns: repeat(auto-fill, 25%);
 }
 
 .box {
   box-sizing: border-box;
-  border: 2px solid red;
 }
 
 .box::before {
