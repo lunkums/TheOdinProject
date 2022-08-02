@@ -12,17 +12,13 @@ body {
 }
 
 h1 {
-  font-family: "Mouse Memoirs", sans-serif;
+  font-family: "Dancing Script", cursive;
   color: #e3b654;
-  text-shadow: black;
-}
-
-.container,
-.box {
-  border: 2px solid black;
 }
 
 .container {
+  border: 0.275em solid #ba0f0d;
+  border-radius: 0.25em;
   width: 30em;
   display: grid;
   grid-template-columns: repeat(auto-fill, 25%);
@@ -30,7 +26,8 @@ h1 {
 
 .box {
   box-sizing: border-box;
-  background-color: white;
+  border: 0.01em dotted #8d898e;
+  background-color: #fefdfb;
 }
 
 .box::before {
