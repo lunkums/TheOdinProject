@@ -2,12 +2,19 @@ html,
 body {
   margin: 0;
   height: 100%;
+  background-color: #eb0f10;
 }
 
 .flexbox {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+h1 {
+  font-family: "Mouse Memoirs", sans-serif;
+  color: #e3b654;
+  text-shadow: black;
 }
 
 .container,
@@ -23,6 +30,7 @@ body {
 
 .box {
   box-sizing: border-box;
+  background-color: white;
 }
 
 .box::before {
