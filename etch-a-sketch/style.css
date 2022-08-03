@@ -11,6 +11,14 @@ body {
   flex-direction: column;
 }
 
+.flexbox-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 3em;
+}
+
 h1 {
   font-family: "Dancing Script", cursive;
   color: #e3b654;
@@ -21,7 +29,10 @@ h1 {
   border-radius: 0.25em;
   width: 29em;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 25%);
+
+  /* Leave the following line for reference, must be added programmatically for
+  dynamic resizing */
+  /* grid-template-columns: repeat(auto-fill, 25%); */
 }
 
 .box {
