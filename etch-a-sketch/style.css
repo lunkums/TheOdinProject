@@ -19,7 +19,7 @@ h1 {
 .container {
   border: 0.275em solid #ba0f0d;
   border-radius: 0.25em;
-  width: 30em;
+  width: 29em;
   display: grid;
   grid-template-columns: repeat(auto-fill, 25%);
 }
@@ -27,7 +27,14 @@ h1 {
 .box {
   box-sizing: border-box;
   border: 0.01em dotted #8d898e;
+}
+
+.unfilled {
   background-color: #fefdfb;
+}
+
+.filled {
+  background-color: black;
 }
 
 .box::before {

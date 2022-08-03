@@ -5,8 +5,14 @@ window.addEventListener("load", createGrid);
 
 function createGrid() {
   for (let i = 0; i < gridSize; i++) {
-    let div = document.createElement("div");
-    div.classList.add("box");
-    container.appendChild(div);
+    let box = document.createElement("div");
+    box.classList.add("box", "unfilled");
+    box.addEventListener("mouseover", (e) => fillBox(e.currentTarget));
+    container.appendChild(box);
   }
+}
+
+function fillBox(box) {
+  box.classList.remove("unfilled");
+  box.classList.add("filled");
 }
