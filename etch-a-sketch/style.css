@@ -72,5 +72,7 @@ button:hover {
 }
 
 footer {
+  font-family: "Inter", sans-serif;
+  font-size: small;
   padding: 0.5em;
 }
