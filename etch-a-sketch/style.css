@@ -1,6 +1,7 @@
 html,
 body,
-button {
+button,
+p {
   margin: 0;
   height: 100%;
   background-color: #eb0f10;
@@ -19,20 +20,18 @@ button {
   flex-direction: row;
 }
 
-h1,
-button {
+.gold-font {
+  color: #e3b654;
   text-shadow: 1px 1px #844b47;
 }
 
 h1 {
   font-family: "Dancing Script", cursive;
-  color: #e3b654;
-  margin: 0.5em 1em;
+  margin: 0.4em 1em;
 }
 
 button {
   font-family: "Inter", sans-serif;
-  color: #e3b654;
   border: none;
   font-size: large;
 }
@@ -70,4 +69,8 @@ button:hover {
   content: "";
   padding-bottom: 100%;
   display: block;
+}
+
+footer {
+  padding: 0.5em;
 }
