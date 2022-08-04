@@ -1,5 +1,6 @@
 html,
-body {
+body,
+button {
   margin: 0;
   height: 100%;
   background-color: #eb0f10;
@@ -14,14 +15,31 @@ body {
 .flexbox-row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: row;
-  gap: 3em;
+}
+
+h1,
+button {
+  text-shadow: 1px 1px #844b47;
 }
 
 h1 {
   font-family: "Dancing Script", cursive;
   color: #e3b654;
+  margin: 0.5em 1em;
+}
+
+button {
+  font-family: "Inter", sans-serif;
+  color: #e3b654;
+  border: none;
+  font-size: large;
+}
+
+button:hover {
+  color: #844b47;
+  text-shadow: 0 0 #e3b654;
 }
 
 .container {
