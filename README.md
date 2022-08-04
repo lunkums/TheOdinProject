@@ -9,6 +9,7 @@ The following repository contains my submissions for assignments in [The Odin Pr
 - [Project: Recipes](./odin-recipes)
 - [Project: Landing Page](./landing-page)
 - [Project: Rock Paper Scissors](./rock-paper-scissors)
+- [Project: Etch-A-Sketch](./etch-a-sketch)
 
 ## HTML Foundations ([Project: Recipes](./odin-recipes))
 
