@@ -1,0 +1,76 @@
+html,
+body,
+button,
+p {
+  margin: 0;
+  height: 100%;
+  background-color: #eb0f10;
+}
+
+.flexbox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flexbox-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.gold-font {
+  color: #e3b654;
+  text-shadow: 1px 1px #844b47;
+}
+
+h1 {
+  font-family: "Dancing Script", cursive;
+  margin: 0.4em 1em;
+}
+
+button {
+  font-family: "Inter", sans-serif;
+  border: none;
+  font-size: large;
+}
+
+button:hover {
+  color: #844b47;
+  text-shadow: 0 0 #e3b654;
+}
+
+.container {
+  border: 0.275em solid #ba0f0d;
+  border-radius: 0.25em;
+  width: 29em;
+  display: grid;
+
+  /* Leave the following line for reference, must be added programmatically for
+  dynamic resizing */
+  /* grid-template-columns: repeat(auto-fill, 25%); */
+}
+
+.box {
+  box-sizing: border-box;
+  border: 0.01em dotted #8d898e;
+}
+
+.unfilled {
+  background-color: #fefdfb;
+}
+
+.filled {
+  background-color: black;
+}
+
+.box::before {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
+}
+
+footer {
+  padding: 0.5em;
+}
