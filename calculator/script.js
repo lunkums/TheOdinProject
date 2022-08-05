@@ -1,10 +1,12 @@
 const displayWindow = document.querySelector("#display");
-const clearButton = document.querySelector("#clear-button");
+const digitButtons = document.querySelectorAll("#digit");
 const operationButtons = document.querySelectorAll("#operation");
+const clearButton = document.querySelector("#clear-button");
+const equalButton = document.querySelector("#equal-button");
 
-let firstNumber;
-let operation;
-let secondNumber;
+let currentNumber;
+let numberList;
+let operationList;
 
 const math = {
   add(a, b) {
@@ -30,23 +32,42 @@ const operations = new Map([
 
 window.addEventListener("load", clear);
 clearButton.addEventListener("click", clear);
+equalButton.addEventListener("click", evaluate);
 operationButtons.forEach((button) => {
-  button.addEventListener(
-    "click",
-    (e) => (operation = operations.get(e.target.textContent))
-  );
+  button.addEventListener("click", (e) => setOperator(e.target.textContent));
+});
+digitButtons.forEach((button) => {
+  button.addEventListener("click", (e) => appendDigit(e.target.textContent));
 });
 
+function setDisplayWindow(textContent) {
+  displayWindow.textContent = textContent;
+}
+
+function appendDigit(digit) {
+  currentNumber += digit;
+  setDisplayWindow(currentNumber);
+}
+
+function setOperator(operator) {
+  numberList.push(currentNumber);
+  currentNumber = "";
+  operationList.push(operator);
+  setDisplayWindow(operator);
+}
+
 function clear() {
-  displayWindow.textContent = "";
-  firstNumber = "";
-  operation = "";
-  secondNumber = "";
+  setDisplayWindow("");
+  currentNumber = "";
+  numberList = [];
+  operationList = [];
+}
+
+function evaluate() {
+  numberList.push(currentNumber);
+  operate("", "", "");
 }
 
 function operate(operator, a, b) {
-  if (operator in math) {
-    return math[operator](a, b);
-  }
-  return "Invalid operation";
+  setDisplayWindow(`Numbers : ${numberList}, Operations : ${operationList}`);
 }
