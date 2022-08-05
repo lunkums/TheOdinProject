@@ -71,8 +71,8 @@ function evaluate() {
   const numbersLen = numberList.length;
   const operationsLen = operationList.length;
   if (operationsLen >= numbersLen) {
+    clear();
     setDisplayWindow("Invalid input");
-    currentNumber = "";
     return;
   } else if (numbersLen > 1) {
     output = numberList[0];
