@@ -46,7 +46,9 @@ function setDisplayWindow(textContent) {
 
 function appendDigit(digit) {
   currentNumber += digit;
-  setDisplayWindow(currentNumber);
+  setDisplayWindow(
+    currentNumber % 1 === 0 ? currentNumber : (+currentNumber).toFixed(2)
+  );
 }
 
 function setOperator(operator) {
@@ -69,7 +71,9 @@ function evaluate() {
   const numbersLen = numberList.length;
   const operationsLen = operationList.length;
   if (operationsLen >= numbersLen) {
-    output = "Invalid input";
+    setDisplayWindow("Invalid input");
+    currentNumber = "";
+    return;
   } else if (numbersLen > 1) {
     output = numberList[0];
     for (let i = 1; i < numbersLen; i++) {
