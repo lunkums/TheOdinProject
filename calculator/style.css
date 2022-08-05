@@ -1,0 +1,36 @@
+/* * {
+  border: 2px solid red;
+} */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.calculator {
+  height: 100%;
+}
+
+button {
+  min-width: 33%;
+}
+
+.double-wide {
+  min-width: 66%;
+}
