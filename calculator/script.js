@@ -64,10 +64,21 @@ function clear() {
 }
 
 function evaluate() {
-  numberList.push(currentNumber);
-  operate("", "", "");
+  let output;
+  if (currentNumber.length > 0) numberList.push(currentNumber);
+  const numbersLen = numberList.length;
+  const operationsLen = operationList.length;
+  if (operationsLen >= numbersLen) {
+    output = "Invalid input";
+  } else if (numbersLen > 1) {
+    output = operate("", "", "");
+  } else {
+    output = currentNumber;
+  }
+  clear();
+  setDisplayWindow(output);
 }
 
 function operate(operator, a, b) {
-  setDisplayWindow(`Numbers : ${numberList}, Operations : ${operationList}`);
+  return `Numbers : ${numberList}, Operations : ${operationList}`;
 }
