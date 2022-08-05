@@ -71,14 +71,21 @@ function evaluate() {
   if (operationsLen >= numbersLen) {
     output = "Invalid input";
   } else if (numbersLen > 1) {
-    output = operate("", "", "");
+    output = numberList[0];
+    for (let i = 1; i < numbersLen; i++) {
+      output = operate(
+        operations.get(operationList[i - 1]),
+        output,
+        numberList[i]
+      );
+    }
   } else {
     output = currentNumber;
   }
   clear();
-  setDisplayWindow(output);
+  appendDigit(output);
 }
 
 function operate(operator, a, b) {
-  return `Numbers : ${numberList}, Operations : ${operationList}`;
+  return math[operator](+a, +b);
 }
