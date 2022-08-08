@@ -25,6 +25,18 @@ body {
 
 .calculator {
   height: 100%;
+  min-width: none;
+  width: 33%;
+}
+
+p {
+  text-align: right;
+}
+
+.buttons,
+p {
+  margin: 0;
+  width: 100%;
 }
 
 button {

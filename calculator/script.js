@@ -41,7 +41,12 @@ digitButtons.forEach((button) => {
 });
 
 function setDisplayWindow(textContent) {
-  displayWindow.textContent = textContent;
+  //Add a zero-width space to prevent the displayWindow from shrinking
+  if (textContent.length === 0) {
+    displayWindow.textContent = "​";
+  } else {
+    displayWindow.textContent = textContent;
+  }
 }
 
 function appendDigit(digit) {
