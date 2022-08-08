@@ -2,8 +2,16 @@
   border: 2px solid red;
 } */
 
+.palette {
+  color: #161853;
+  color: #292c6d;
+  color: #faedf0;
+  color: #ec255a;
+}
+
 html,
 body {
+  background-color: #292c6d;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -18,31 +26,60 @@ body {
 }
 
 .flex-row {
+  gap: 5px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.calculator {
-  height: 100%;
-  min-width: none;
-  width: 33%;
+h1 {
+  margin: 0px;
+  padding: 8px;
 }
 
-p {
-  text-align: right;
+.calculator {
+  padding: 8px;
+  background-color: #161853;
+  border-radius: 4px;
+  height: 512px;
+  width: 428px;
 }
 
 .buttons,
-p {
+#display {
   margin: 0;
   width: 100%;
 }
 
-button {
-  min-width: 33%;
+button,
+#display {
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 4px;
 }
 
+#display {
+  height: 64px;
+  background-color: #faedf0;
+  text-align: end;
+  overflow: hidden;
+}
+
+button {
+  padding: 0;
+  margin-top: 4px;
+  flex: 1 1 0;
+  color: #ec255a;
+  background-color: #292c6d;
+  height: 64px;
+}
+
+#clear-button {
+  background-color: #ec255a;
+  color: #faedf0;
+}
+
+/* Adjust last */
 .double-wide {
-  min-width: 66%;
+  flex: 2.065 0 0;
 }
