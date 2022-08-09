@@ -63,12 +63,17 @@ button,
   border-radius: 4px;
 }
 
+.align-right-center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 #display {
   color: #161853;
   height: 64px;
-  font-size: xx-large;
+  font-size: 64px;
   background-color: #faedf0;
-  text-align: end;
   overflow: hidden;
 }
 
