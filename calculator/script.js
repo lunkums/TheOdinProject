@@ -32,7 +32,7 @@ const operations = new Map([
 
 window.addEventListener("load", clear);
 clearButton.addEventListener("click", clear);
-equalButton.addEventListener("click", evaluate);
+equalButton.addEventListener("click", clear);
 operationButtons.forEach((button) => {
   button.addEventListener("click", (e) => setOperator(e.target.textContent));
 });
@@ -40,59 +40,28 @@ digitButtons.forEach((button) => {
   button.addEventListener("click", (e) => appendDigit(e.target.textContent));
 });
 
-function setDisplayWindow(textContent) {
-  //Add a zero-width space to prevent the displayWindow from shrinking
-  if (textContent.length === 0) {
+function setDisplayWindow() {
+  const castedCurrentNum = +currentNumber;
+  const stringCastedNum = castedCurrentNum.toString();
+  if (stringCastedNum.length === 0) {
     displayWindow.textContent = "0";
+  } else if (stringCastedNum.length < 9) {
+    displayWindow.textContent = castedCurrentNum;
   } else {
-    displayWindow.textContent = textContent;
+    displayWindow.textContent = castedCurrentNum.toPrecision(9);
   }
 }
 
-function appendDigit(digit) {
-  currentNumber += digit;
-  setDisplayWindow(
-    currentNumber % 1 === 0 ? currentNumber : (+currentNumber).toFixed(2)
-  );
-}
-
-function setOperator(operator) {
-  numberList.push(currentNumber);
-  currentNumber = "";
-  operationList.push(operator);
-  setDisplayWindow(operator);
-}
-
 function clear() {
-  setDisplayWindow("");
   currentNumber = "";
+  setDisplayWindow();
   numberList = [];
   operationList = [];
 }
 
-function evaluate() {
-  let output;
-  if (currentNumber.length > 0) numberList.push(currentNumber);
-  const numbersLen = numberList.length;
-  const operationsLen = operationList.length;
-  if (operationsLen >= numbersLen) {
-    clear();
-    setDisplayWindow("Invalid input");
-    return;
-  } else if (numbersLen > 1) {
-    output = numberList[0];
-    for (let i = 1; i < numbersLen; i++) {
-      output = operate(
-        operations.get(operationList[i - 1]),
-        output,
-        numberList[i]
-      );
-    }
-  } else {
-    output = currentNumber;
-  }
-  clear();
-  appendDigit(output);
+function appendDigit(digit) {
+  currentNumber += digit;
+  setDisplayWindow();
 }
 
 function operate(operator, a, b) {
