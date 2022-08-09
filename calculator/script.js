@@ -43,7 +43,7 @@ digitButtons.forEach((button) => {
 function setDisplayWindow(textContent) {
   //Add a zero-width space to prevent the displayWindow from shrinking
   if (textContent.length === 0) {
-    displayWindow.textContent = "​";
+    displayWindow.textContent = "0";
   } else {
     displayWindow.textContent = textContent;
   }
