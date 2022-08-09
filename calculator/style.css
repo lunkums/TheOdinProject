@@ -16,13 +16,14 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
+  overflow: auto;
 }
 
 .flex-column {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .flex-row {
@@ -32,9 +33,12 @@ body {
   justify-content: center;
 }
 
-h1 {
+h1,
+footer {
+  font-family: "Roboto", sans-serif;
   margin: 0px;
   padding: 8px;
+  color: #faedf0;
 }
 
 .calculator {
@@ -42,7 +46,7 @@ h1 {
   background-color: #161853;
   border-radius: 4px;
   height: 512px;
-  width: 428px;
+  width: 400px;
 }
 
 .buttons,
@@ -53,19 +57,23 @@ h1 {
 
 button,
 #display {
+  font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   border: 1px solid black;
   border-radius: 4px;
 }
 
 #display {
+  color: #161853;
   height: 64px;
+  font-size: xx-large;
   background-color: #faedf0;
   text-align: end;
   overflow: hidden;
 }
 
 button {
+  font-size: x-large;
   padding: 0;
   margin-top: 4px;
   flex: 1 1 0;
