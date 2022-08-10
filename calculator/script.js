@@ -30,6 +30,17 @@ const operations = new Map([
   ["/", "divide"],
 ]);
 
+const keyTypes = new Map([
+  ["+", "operator"],
+  ["-", "operator"],
+  ["*", "operator"],
+  ["/", "operator"],
+  ["=", "evaluate"],
+  ["Enter", "evaluate"],
+  ["Backspace", "remove"],
+  ["Delete", "remove"],
+]);
+
 window.addEventListener("click", debug);
 
 window.addEventListener("load", clear);
@@ -40,6 +51,32 @@ operationButtons.forEach((button) => {
 });
 digitButtons.forEach((button) => {
   button.addEventListener("click", (e) => appendDigit(e.target.textContent));
+});
+
+/* Add keyboard support */
+window.addEventListener("keydown", (e) => {
+  e.preventDefault();
+
+  const key = e.key;
+  const keyType = keyTypes.get(key);
+  if (!Number.isNaN(+key)) {
+    appendDigit(key);
+    return;
+  }
+
+  switch (keyType) {
+    case "operator":
+      setOperation(key);
+      break;
+    case "evaluate":
+      evaluate();
+      break;
+    case "remove":
+      removeDigit();
+      break;
+    default:
+      break;
+  }
 });
 
 function setDisplayWindow(number) {
@@ -64,6 +101,11 @@ function clear() {
 
 function appendDigit(digit) {
   currentNumber += digit;
+  setDisplayWindow(currentNumber);
+}
+
+function removeDigit() {
+  currentNumber = currentNumber.slice(0, currentNumber.length - 1);
   setDisplayWindow(currentNumber);
 }
 
