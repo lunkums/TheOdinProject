@@ -30,6 +30,8 @@ const operations = new Map([
   ["/", "divide"],
 ]);
 
+window.addEventListener("click", debug);
+
 window.addEventListener("load", clear);
 clearButton.addEventListener("click", clear);
 equalButton.addEventListener("click", evaluate);
@@ -68,14 +70,14 @@ function appendDigit(digit) {
 function setOperation(operator) {
   const previousOperation = operation;
 
-  if (previousOperation) {
+  if (previousOperation && currentNumber !== "") {
     evaluate();
   }
 
   operation = operations.get(operator);
 
   if (currentNumber !== "") {
-    lastNumber = currentNumber;
+    lastNumber = +currentNumber;
     currentNumber = "";
   }
 }
@@ -91,7 +93,7 @@ function evaluate() {
     clear();
     displayWindow.textContent = "nope.";
   } else {
-    lastNumber = operate(operation, lastNumber, currentNumber);
+    lastNumber = +operate(operation, lastNumber, currentNumber);
     currentNumber = "";
     operation = null;
     setDisplayWindow(lastNumber);
@@ -100,4 +102,12 @@ function evaluate() {
 
 function operate(operation, a, b) {
   return math[operation](+a, +b);
+}
+
+function debug() {
+  console.log(
+    `lastNumber : ${lastNumber}
+currentNumber : "${currentNumber}"
+operation : ${operation}`
+  );
 }
