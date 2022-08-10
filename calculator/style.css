@@ -97,3 +97,9 @@ button {
 .double-wide {
   flex: 2.0545 0 0;
 }
+
+footer {
+  font-size: large;
+  margin-top: auto;
+  margin-bottom: 8px;
+}

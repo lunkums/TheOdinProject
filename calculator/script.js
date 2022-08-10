@@ -3,6 +3,7 @@ const digitButtons = document.querySelectorAll("#digit");
 const operationButtons = document.querySelectorAll("#operation");
 const clearButton = document.querySelector("#clear-button");
 const equalButton = document.querySelector("#equal-button");
+const deleteButton = document.querySelector("#delete-button");
 
 let lastNumber;
 let currentNumber;
@@ -37,8 +38,8 @@ const keyTypes = new Map([
   ["/", "operator"],
   ["=", "evaluate"],
   ["Enter", "evaluate"],
-  ["Backspace", "remove"],
-  ["Delete", "remove"],
+  ["Backspace", "delete"],
+  ["Delete", "delete"],
 ]);
 
 window.addEventListener("click", debug);
@@ -46,6 +47,7 @@ window.addEventListener("click", debug);
 window.addEventListener("load", clear);
 clearButton.addEventListener("click", clear);
 equalButton.addEventListener("click", evaluate);
+deleteButton.addEventListener("click", deleteDigit);
 operationButtons.forEach((button) => {
   button.addEventListener("click", (e) => setOperation(e.target.textContent));
 });
@@ -71,8 +73,8 @@ window.addEventListener("keydown", (e) => {
     case "evaluate":
       evaluate();
       break;
-    case "remove":
-      removeDigit();
+    case "delete":
+      deleteDigit();
       break;
     default:
       break;
@@ -83,13 +85,17 @@ function setDisplayWindow(number) {
   const castedNumber = +number;
   const stringCastedNum = castedNumber.toString();
 
-  if (stringCastedNum.length === 0) {
+  if (number.length === 0) {
     displayWindow.textContent = "0";
-  } else if (stringCastedNum.length < 9) {
-    displayWindow.textContent = castedNumber;
+  } else if (numberOfDigits(stringCastedNum) < 9) {
+    displayWindow.textContent = number;
   } else {
     displayWindow.textContent = castedNumber.toPrecision(9);
   }
+}
+
+function numberOfDigits(numberAsString) {
+  return numberAsString.replace(/[^0-9]/g, "").length;
 }
 
 function clear() {
@@ -104,7 +110,7 @@ function appendDigit(digit) {
   setDisplayWindow(currentNumber);
 }
 
-function removeDigit() {
+function deleteDigit() {
   currentNumber = currentNumber.slice(0, currentNumber.length - 1);
   if (currentNumber === "-") {
     currentNumber = "";
