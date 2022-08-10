@@ -4,9 +4,9 @@ const operationButtons = document.querySelectorAll("#operation");
 const clearButton = document.querySelector("#clear-button");
 const equalButton = document.querySelector("#equal-button");
 
+let lastNumber;
 let currentNumber;
-let numberList;
-let operationList;
+let operation;
 
 const math = {
   add(a, b) {
@@ -32,38 +32,72 @@ const operations = new Map([
 
 window.addEventListener("load", clear);
 clearButton.addEventListener("click", clear);
-equalButton.addEventListener("click", clear);
+equalButton.addEventListener("click", evaluate);
 operationButtons.forEach((button) => {
-  button.addEventListener("click", (e) => setOperator(e.target.textContent));
+  button.addEventListener("click", (e) => setOperation(e.target.textContent));
 });
 digitButtons.forEach((button) => {
   button.addEventListener("click", (e) => appendDigit(e.target.textContent));
 });
 
-function setDisplayWindow() {
-  const castedCurrentNum = +currentNumber;
-  const stringCastedNum = castedCurrentNum.toString();
+function setDisplayWindow(number) {
+  const castedNumber = +number;
+  const stringCastedNum = castedNumber.toString();
+
   if (stringCastedNum.length === 0) {
     displayWindow.textContent = "0";
   } else if (stringCastedNum.length < 9) {
-    displayWindow.textContent = castedCurrentNum;
+    displayWindow.textContent = castedNumber;
   } else {
-    displayWindow.textContent = castedCurrentNum.toPrecision(9);
+    displayWindow.textContent = castedNumber.toPrecision(9);
   }
 }
 
 function clear() {
+  lastNumber = null;
   currentNumber = "";
-  setDisplayWindow();
-  numberList = [];
-  operationList = [];
+  operation = null;
+  setDisplayWindow(currentNumber);
 }
 
 function appendDigit(digit) {
   currentNumber += digit;
-  setDisplayWindow();
+  setDisplayWindow(currentNumber);
 }
 
-function operate(operator, a, b) {
-  return math[operator](+a, +b);
+function setOperation(operator) {
+  const previousOperation = operation;
+
+  if (previousOperation) {
+    evaluate();
+  }
+
+  operation = operations.get(operator);
+
+  if (currentNumber !== "") {
+    lastNumber = currentNumber;
+    currentNumber = "";
+  }
+}
+
+function evaluate() {
+  if (!operation) return;
+
+  if (currentNumber.length === 0) {
+    currentNumber = lastNumber;
+  }
+
+  if (+currentNumber === 0 && operation === "divide") {
+    clear();
+    displayWindow.textContent = "nope.";
+  } else {
+    lastNumber = operate(operation, lastNumber, currentNumber);
+    currentNumber = "";
+    operation = null;
+    setDisplayWindow(lastNumber);
+  }
+}
+
+function operate(operation, a, b) {
+  return math[operation](+a, +b);
 }
