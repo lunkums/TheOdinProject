@@ -106,6 +106,9 @@ function appendDigit(digit) {
 
 function removeDigit() {
   currentNumber = currentNumber.slice(0, currentNumber.length - 1);
+  if (currentNumber === "-") {
+    currentNumber = "";
+  }
   setDisplayWindow(currentNumber);
 }
 
@@ -135,10 +138,10 @@ function evaluate() {
     clear();
     displayWindow.textContent = "nope.";
   } else {
-    lastNumber = +operate(operation, lastNumber, currentNumber);
-    currentNumber = "";
+    currentNumber = operate(operation, lastNumber, currentNumber).toString();
+    lastNumber = "";
     operation = null;
-    setDisplayWindow(lastNumber);
+    setDisplayWindow(currentNumber);
   }
 }
 
