@@ -59,11 +59,11 @@ digitButtons.forEach((button) => {
 
 /* Add keyboard support */
 window.addEventListener("keydown", (e) => {
-  e.preventDefault();
-
   const key = e.key;
   const keyType = keyTypes.get(key);
-  console.log(key);
+  if (key === "Enter") {
+    e.preventDefault();
+  }
   if (!Number.isNaN(+key)) {
     appendDigit(key);
     return;
