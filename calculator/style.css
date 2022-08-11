@@ -38,7 +38,7 @@ footer {
   font-family: "Roboto", sans-serif;
   margin: 0px;
   padding: 8px;
-  color: #faedf0;
+  color: #ec255a;
 }
 
 .calculator {
@@ -103,7 +103,6 @@ button {
 }
 
 footer {
-  font-size: large;
-  margin-top: auto;
+  font-size: small;
   margin-bottom: 8px;
 }

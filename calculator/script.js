@@ -84,58 +84,13 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-function setDisplayWindow(number) {
-  const castedNumber = +number;
-  const stringCastedNum = castedNumber.toString();
-
-  if (numberOfDigits(stringCastedNum) < 9) {
-    displayWindow.textContent = number;
-  } else {
-    displayWindow.textContent = castedNumber.toPrecision(9);
-  }
-}
+/* Main calculator functionality */
 
 function clear() {
   lastNumber = null;
   resetCurrentNumber();
   resetOperation();
   setDisplayWindow(currentNumber);
-}
-
-function appendDigit(digit) {
-  if (isEmpty(currentNumber) || (currentNumber === "0" && digit !== ".")) {
-    currentNumber = digit;
-  } else {
-    currentNumber += digit;
-  }
-  setDisplayWindow(currentNumber);
-}
-
-function deleteDigit() {
-  currentNumber = currentNumber.slice(0, currentNumber.length - 1);
-  if (isEmpty(currentNumber)) {
-    resetCurrentNumber();
-  }
-  setDisplayWindow(currentNumber);
-}
-
-function setOperation(operator, button) {
-  const previousOperation = operation;
-
-  if (previousOperation && !isEmpty(currentNumber)) {
-    evaluate();
-  }
-
-  operation = operations.get(operator);
-  setActiveButton(button);
-
-  if (!isEmpty(currentNumber)) {
-    lastNumber = +currentNumber;
-    if (isNaN(lastNumber)) {
-      lastNumber = 0;
-    }
-    resetCurrentNumber();
-  }
 }
 
 function evaluate() {
@@ -160,26 +115,27 @@ function operate(operation, a, b) {
   return math[operation](+a, +b);
 }
 
-function debug() {
-  console.log(
-    `lastNumber : ${lastNumber}
-currentNumber : "${currentNumber}"
-operation : ${operation}`
-  );
+/* Setters */
+
+function appendDigit(digit) {
+  if (isEmpty(currentNumber) || (currentNumber === "0" && digit !== ".")) {
+    currentNumber = digit;
+  } else {
+    currentNumber += digit;
+  }
+  setDisplayWindow(currentNumber);
 }
 
-/* Helper methods */
+function deleteDigit() {
+  currentNumber = currentNumber.slice(0, currentNumber.length - 1);
+  if (isEmpty(currentNumber)) {
+    resetCurrentNumber();
+  }
+  setDisplayWindow(currentNumber);
+}
 
 function resetCurrentNumber() {
   currentNumber = "0";
-}
-
-function isEmpty(number) {
-  return number === "";
-}
-
-function numberOfDigits(numberAsString) {
-  return numberAsString.replace(/[^0-9]/g, "").length;
 }
 
 function resetOperation() {
@@ -195,4 +151,56 @@ function setActiveButton(activeButton) {
       button.classList.remove("active-button");
     }
   }
+}
+
+function setDisplayWindow(number) {
+  const castedNumber = +number;
+  const stringCastedNum = castedNumber.toString();
+
+  if (numberOfDigits(stringCastedNum) < 9) {
+    displayWindow.textContent = number;
+  } else {
+    displayWindow.textContent = castedNumber.toPrecision(9);
+  }
+}
+
+function setLastNumber(number) {
+  lastNumber = +number;
+  if (isNaN(lastNumber)) {
+    lastNumber = 0;
+  }
+}
+
+function setOperation(operator, button) {
+  const previousOperation = operation;
+
+  if (previousOperation && !isEmpty(currentNumber)) {
+    evaluate();
+  }
+
+  operation = operations.get(operator);
+  setActiveButton(button);
+
+  if (!isEmpty(currentNumber)) {
+    setLastNumber(currentNumber);
+    resetCurrentNumber();
+  }
+}
+
+/* Helper methods */
+
+function isEmpty(number) {
+  return number === "";
+}
+
+function numberOfDigits(numberAsString) {
+  return numberAsString.replace(/[^0-9]/g, "").length;
+}
+
+function debug() {
+  console.log(
+    `lastNumber : ${lastNumber}
+currentNumber : "${currentNumber}"
+operation : ${operation}`
+  );
 }
