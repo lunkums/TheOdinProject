@@ -131,6 +131,9 @@ function setOperation(operator, button) {
 
   if (!isEmpty(currentNumber)) {
     lastNumber = +currentNumber;
+    if (isNaN(lastNumber)) {
+      lastNumber = 0;
+    }
     resetCurrentNumber();
   }
 }
