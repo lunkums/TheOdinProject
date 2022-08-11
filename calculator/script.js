@@ -85,35 +85,33 @@ function setDisplayWindow(number) {
   const castedNumber = +number;
   const stringCastedNum = castedNumber.toString();
 
-  if (number.length === 0) {
-    displayWindow.textContent = "0";
-  } else if (numberOfDigits(stringCastedNum) < 9) {
+  if (numberOfDigits(stringCastedNum) < 9) {
     displayWindow.textContent = number;
   } else {
     displayWindow.textContent = castedNumber.toPrecision(9);
   }
 }
 
-function numberOfDigits(numberAsString) {
-  return numberAsString.replace(/[^0-9]/g, "").length;
-}
-
 function clear() {
   lastNumber = null;
-  currentNumber = "";
+  resetCurrentNumber();
   operation = null;
   setDisplayWindow(currentNumber);
 }
 
 function appendDigit(digit) {
-  currentNumber += digit;
+  if (isEmpty(currentNumber) || (currentNumber === "0" && digit !== ".")) {
+    currentNumber = digit;
+  } else {
+    currentNumber += digit;
+  }
   setDisplayWindow(currentNumber);
 }
 
 function deleteDigit() {
   currentNumber = currentNumber.slice(0, currentNumber.length - 1);
-  if (currentNumber === "-") {
-    currentNumber = "";
+  if (isEmpty(currentNumber)) {
+    resetCurrentNumber();
   }
   setDisplayWindow(currentNumber);
 }
@@ -121,15 +119,15 @@ function deleteDigit() {
 function setOperation(operator) {
   const previousOperation = operation;
 
-  if (previousOperation && currentNumber !== "") {
+  if (previousOperation && !isEmpty(currentNumber)) {
     evaluate();
   }
 
   operation = operations.get(operator);
 
-  if (currentNumber !== "") {
+  if (!isEmpty(currentNumber)) {
     lastNumber = +currentNumber;
-    currentNumber = "";
+    resetCurrentNumber();
   }
 }
 
@@ -161,4 +159,18 @@ function debug() {
 currentNumber : "${currentNumber}"
 operation : ${operation}`
   );
+}
+
+/* Helper methods */
+
+function resetCurrentNumber() {
+  currentNumber = "0";
+}
+
+function isEmpty(number) {
+  return number === "";
+}
+
+function numberOfDigits(numberAsString) {
+  return numberAsString.replace(/[^0-9]/g, "").length;
 }
