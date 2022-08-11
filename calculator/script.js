@@ -118,6 +118,9 @@ function operate(operation, a, b) {
 /* Setters */
 
 function appendDigit(digit) {
+  if (digit === "." && currentNumber.includes(".")) {
+    return;
+  }
   if (isEmpty(currentNumber) || (currentNumber === "0" && digit !== ".")) {
     currentNumber = digit;
   } else {
