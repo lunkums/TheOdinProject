@@ -49,7 +49,9 @@ clearButton.addEventListener("click", clear);
 equalButton.addEventListener("click", evaluate);
 deleteButton.addEventListener("click", deleteDigit);
 operationButtons.forEach((button) => {
-  button.addEventListener("click", (e) => setOperation(e.target.textContent));
+  button.addEventListener("click", (e) =>
+    setOperation(e.target.textContent, button)
+  );
 });
 digitButtons.forEach((button) => {
   button.addEventListener("click", (e) => appendDigit(e.target.textContent));
@@ -61,6 +63,7 @@ window.addEventListener("keydown", (e) => {
 
   const key = e.key;
   const keyType = keyTypes.get(key);
+  console.log(key);
   if (!Number.isNaN(+key)) {
     appendDigit(key);
     return;
@@ -95,7 +98,7 @@ function setDisplayWindow(number) {
 function clear() {
   lastNumber = null;
   resetCurrentNumber();
-  operation = null;
+  resetOperation();
   setDisplayWindow(currentNumber);
 }
 
@@ -116,7 +119,7 @@ function deleteDigit() {
   setDisplayWindow(currentNumber);
 }
 
-function setOperation(operator) {
+function setOperation(operator, button) {
   const previousOperation = operation;
 
   if (previousOperation && !isEmpty(currentNumber)) {
@@ -124,6 +127,7 @@ function setOperation(operator) {
   }
 
   operation = operations.get(operator);
+  setActiveButton(button);
 
   if (!isEmpty(currentNumber)) {
     lastNumber = +currentNumber;
@@ -134,7 +138,7 @@ function setOperation(operator) {
 function evaluate() {
   if (!operation) return;
 
-  if (currentNumber.length === 0) {
+  if (isEmpty(currentNumber)) {
     currentNumber = lastNumber;
   }
 
@@ -144,7 +148,7 @@ function evaluate() {
   } else {
     currentNumber = operate(operation, lastNumber, currentNumber).toString();
     lastNumber = "";
-    operation = null;
+    resetOperation();
     setDisplayWindow(currentNumber);
   }
 }
@@ -173,4 +177,19 @@ function isEmpty(number) {
 
 function numberOfDigits(numberAsString) {
   return numberAsString.replace(/[^0-9]/g, "").length;
+}
+
+function resetOperation() {
+  operation = null;
+  setActiveButton(null);
+}
+
+function setActiveButton(activeButton) {
+  for (const button of operationButtons) {
+    if (button === activeButton) {
+      activeButton.classList.add("active-button");
+    } else {
+      button.classList.remove("active-button");
+    }
+  }
 }

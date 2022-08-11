@@ -88,6 +88,10 @@ button {
   outline: none;
 }
 
+.active-button {
+  outline: 2px solid #faedf0;
+}
+
 #clear-button {
   background-color: #ec255a;
   color: #faedf0;
