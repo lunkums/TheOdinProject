@@ -10,6 +10,7 @@ The following repository contains my submissions for assignments in [The Odin Pr
 - [Project: Landing Page](./landing-page)
 - [Project: Rock Paper Scissors](./rock-paper-scissors)
 - [Project: Etch-A-Sketch](./etch-a-sketch)
+- [Project: Calculator](./calculator)
 
 ## HTML Foundations ([Project: Recipes](./odin-recipes))
 
@@ -46,3 +47,19 @@ The following repository contains my submissions for assignments in [The Odin Pr
   - This will force it to cover the specified percentage of the page horizontally
 - Many predefined HTML tags have default margins which can screw with Flexbox
 - Stretching images is hard but possible by specifying a max, min width and using "flex: auto;"
+
+## JavaScript
+
+- This section took much longer than expected
+- I thought, knowing more "complex" languages such as C and Assembly, JavaScript would be a walk in the park, but boy is it hard to debug
+- JS is dynamically typed, meaning a variable can assume any data type at any point
+- "null" means empty or unknown while "undefined" means unassigned
+- Maps and JS objects are similar, but JS objects can have nested pairs
+  - JS objects act similarly to JSON objects
+- All variables are global by default
+  - Storing variables and methods inside of classes helps clean up the global namespace
+- Always sketch your user interfaces beforehand (learned this from a previous project, but thought it was worth reinforcing)
+- I have never had a reason to use one browser over another until I realized how robust Chrome's dev tools are
+- Comments tell us why code works, not how
+- When linking a JS script in the head element, you must use the defer keyword to correctly load elements from the DOM
+- Programming a calculator is harder than I thought...
