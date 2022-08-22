@@ -2,7 +2,7 @@
 
 For the visual repository with access to live web pages, use [GitHub pages](https://lunkums.github.io/TheOdinProject/).
 
-The following repository contains my submissions for assignments in [The Odin Project](https://www.theodinproject.com/). Each section below includes a list of points that I've learned while studying it's corresponding section in the curriculum. If there is a project associated with a section, a link to my submission will be included in the heading. There is also a list of links to all my project submissions under the "Projects" section.
+The following repository contains my submissions for assignments in [The Odin Project](https://www.theodinproject.com/). Each section below includes a list of points that I've learned while studying its corresponding section in the curriculum. If there is a project associated with a section, a link to my submission will be included in the heading. There is also a list of links to all my project submissions under the "Projects" section.
 
 ## Projects
 
@@ -30,7 +30,7 @@ The following repository contains my submissions for assignments in [The Odin Pr
   - Determines which styles are applied to any given element
 - The Box Model:
   - Everything you see on a webpage is either part of a box or a box itself
-- A box's size and its relationship to the content inside is determined by:
+- A box's size and its relationship to the content inside are determined by:
   - Padding (space between content and border)
   - Border (edge between padding and margin)
   - Margin (space between elements; margins have the ability to collapse or overlap between elements)
